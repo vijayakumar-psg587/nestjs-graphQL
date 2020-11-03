@@ -1,0 +1,117 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type capabilityTypeDto {
+  """Capability type DTO id"""
+  id: Int!
+
+  """Capability type DTO description"""
+  description: String
+
+  """Capability type DTO  name"""
+  name: String!
+
+  """User who updated/created Capability type Dto """
+  updatedAt: String!
+
+  """Timestamp of creation of Capability type DTO"""
+  updatedBy: String!
+
+  """ List of associated subCategories"""
+  subCategoryIds: [Int!]!
+
+  """List of associated categories"""
+  categoryIds: [Int!]!
+
+  """List of assocciated capabilities"""
+  capabilityIds: [Int!]!
+}
+
+type subCategoryDto {
+  """SubCategoryDTO id"""
+  id: Int!
+
+  """SubCategory DTO description"""
+  description: String
+
+  """SubCategory DTO  name"""
+  name: String!
+
+  """User who updated/created SubCategory Dto """
+  updatedAt: String!
+
+  """Timestamp of creation of SubCategory DTO"""
+  updatedBy: String!
+
+  """Linked categoryDTO Id"""
+  categoryId: Float!
+
+  """Linked capabilityType"""
+  capabilityTypeId: Int!
+
+  """Linked capabilities"""
+  capabilityIds: [Int!]!
+  capabilities: [capabilityDto!]!
+  capabilityType: capabilityTypeDto!
+}
+
+type categoryDto {
+  """Category id"""
+  id: Int!
+
+  """Category DTO description"""
+  description: String
+
+  """Category DTO  name"""
+  name: String!
+
+  """User who updated/created Category Dto """
+  updatedAt: String!
+
+  """Timestamp of creation of Category DTO"""
+  updatedBy: String!
+
+  """Linked capabilityType"""
+  capabilityTypeId: Int!
+
+  """Linked subcategories"""
+  subCategoryIds: [Int!]!
+
+  """Linked capabilities"""
+  capabilityIds: [Int!]!
+}
+
+type capabilityDto {
+  """Capability DTO id"""
+  id: Int!
+
+  """Capability DTO description"""
+  description: String
+
+  """Capability DTO name"""
+  name: String!
+
+  """User who updated/created Capability Dto """
+  updatedAt: String!
+
+  """Timestamp of creation of capability DTO"""
+  updatedBy: String!
+
+  """Linked subcategory"""
+  subCategoryId: Int!
+
+  """Linked capabilityType"""
+  capabilityTypeId: Int!
+
+  """Linked category"""
+  categoryId: Int!
+  subCategory: subCategoryDto!
+  category: categoryDto!
+  capabilityType: capabilityTypeDto!
+}
+
+type Query {
+  capability(capabilityIds: [Int!]): [capabilityDto!]!
+  capabilityType(capabilityTypeIds: [Int!]!): [capabilityTypeDto!]!
+}
